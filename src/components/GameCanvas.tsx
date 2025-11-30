@@ -1,7 +1,7 @@
 import { Card } from '@/components/ui/card'
 
 interface GameCanvasProps {
-  canvasRef: React.RefObject<HTMLCanvasElement>
+  canvasRef: React.RefObject<HTMLCanvasElement | null>
   width: number
   height: number
   isGameOver: boolean
@@ -9,14 +9,14 @@ interface GameCanvasProps {
   isPlaying: boolean
 }
 
-export const GameCanvas = ({
+export default function GameCanvas({
   canvasRef,
   width,
   height,
   isGameOver,
   isPaused,
   isPlaying
-}: GameCanvasProps) => {
+}: GameCanvasProps) {
   return (
     <Card className="p-4 bg-gradient-to-br from-primary/20 to-secondary/20 border-2">
       <div className="relative">

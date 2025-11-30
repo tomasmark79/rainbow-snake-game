@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Play, Pause, RotateCcw } from '@phosphor-icons/react'
+import { Play, Pause, ArrowClockwise } from '@phosphor-icons/react'
 
 interface GameControlsProps {
   score: number
@@ -13,7 +13,7 @@ interface GameControlsProps {
   onRestart: () => void
 }
 
-export const GameControls = ({
+export default function GameControls({
   score,
   highScore,
   isPlaying,
@@ -22,7 +22,7 @@ export const GameControls = ({
   onStart,
   onPause,
   onRestart
-}: GameControlsProps) => {
+}: GameControlsProps) {
   return (
     <div className="flex flex-col gap-4 w-full max-w-xs">
       <Card className="p-4">
@@ -55,7 +55,7 @@ export const GameControls = ({
 
         {isGameOver && (
           <Button onClick={onRestart} size="lg" className="w-full">
-            <RotateCcw size={20} className="mr-2" />
+            <ArrowClockwise size={20} className="mr-2" />
             Play Again
           </Button>
         )}

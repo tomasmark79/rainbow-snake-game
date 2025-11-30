@@ -1,7 +1,7 @@
 import { useKV } from '@github/spark/hooks'
 import { useSnakeGame } from '@/hooks/use-snake-game'
-import { GameCanvas } from '@/components/GameCanvas'
-import { GameControls } from '@/components/GameControls'
+import GameCanvas from '@/components/GameCanvas'
+import GameControls from '@/components/GameControls'
 import { useEffect } from 'react'
 
 function App() {
