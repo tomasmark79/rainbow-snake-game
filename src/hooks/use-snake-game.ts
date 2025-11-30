@@ -28,8 +28,8 @@ const DIRECTIONS = {
 }
 
 export function useSnakeGame() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const gameLoopRef = useRef<number>()
+  const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const gameLoopRef = useRef<number | undefined>(undefined)
   const lastTimeRef = useRef<number>(0)
   
   const [gameState, setGameState] = useState<GameState>({

@@ -5,7 +5,7 @@ import GameControls from '@/components/GameControls'
 import { useEffect } from 'react'
 
 function App() {
-  const [highScore, setHighScore] = useKV('snake-high-score', 0)
+  const [highScore, setHighScore] = useKV<number>('snake-high-score', 0)
   const {
     canvasRef,
     gameState,
@@ -16,7 +16,7 @@ function App() {
   } = useSnakeGame()
 
   useEffect(() => {
-    if (gameState.score > highScore) {
+    if (highScore !== undefined && gameState.score > highScore) {
       setHighScore(gameState.score)
     }
   }, [gameState.score, highScore, setHighScore])
@@ -45,7 +45,7 @@ function App() {
 
           <GameControls
             score={gameState.score}
-            highScore={highScore}
+            highScore={highScore ?? 0}
             isPlaying={gameState.isPlaying}
             isPaused={gameState.isPaused}
             isGameOver={gameState.isGameOver}
