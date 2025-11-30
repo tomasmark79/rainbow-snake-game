@@ -13,7 +13,7 @@ interface GameControlsProps {
   onRestart: () => void
 }
 
-function GameControls({
+export function GameControls({
   score,
   highScore,
   isPlaying,
@@ -71,5 +71,3 @@ function GameControls({
     </div>
   )
 }
-
-export default GameControls
