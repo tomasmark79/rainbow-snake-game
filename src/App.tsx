@@ -1,11 +1,18 @@
-import { useKV } from '@github/spark/hooks'
 import { useSnakeGame } from '@/hooks/use-snake-game'
 import GameCanvas from '@/components/GameCanvas'
 import GameControls from '@/components/GameControls'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
-  const [highScore, setHighScore] = useKV<number>('snake-high-score', 0)
+  const [highScore, setHighScore] = useState<number>(() => {
+    const saved = localStorage.getItem('snake-high-score')
+    return saved ? parseInt(saved, 10) : 0
+  })
+  
+  const updateHighScore = (score: number) => {
+    setHighScore(score)
+    localStorage.setItem('snake-high-score', score.toString())
+  }
   const {
     canvasRef,
     gameState,
@@ -16,10 +23,10 @@ function App() {
   } = useSnakeGame()
 
   useEffect(() => {
-    if (highScore !== undefined && gameState.score > highScore) {
-      setHighScore(gameState.score)
+    if (gameState.score > highScore) {
+      updateHighScore(gameState.score)
     }
-  }, [gameState.score, highScore, setHighScore])
+  }, [gameState.score, highScore])
 
   return (
     <div className="min-h-screen bg-background p-4">
@@ -45,7 +52,7 @@ function App() {
 
           <GameControls
             score={gameState.score}
-            highScore={highScore ?? 0}
+            highScore={highScore}
             isPlaying={gameState.isPlaying}
             isPaused={gameState.isPaused}
             isGameOver={gameState.isGameOver}
