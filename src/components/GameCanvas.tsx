@@ -31,7 +31,7 @@ export default function GameCanvas({
           <div className="absolute inset-0 flex items-center justify-center bg-background/80 rounded-lg">
             <div className="text-center space-y-4">
               <h2 className="text-3xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
-                Rainbow Snake
+                Rainbow Snake by DotName and Spark
               </h2>
               <p className="text-muted-foreground">Press Space or click Start to begin</p>
             </div>
