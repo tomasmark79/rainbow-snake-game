@@ -9,7 +9,7 @@ interface GameCanvasProps {
   isPlaying: boolean
 }
 
-export function GameCanvas({
+export default function GameCanvas({
   canvasRef,
   width,
   height,

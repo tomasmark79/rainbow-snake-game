@@ -13,7 +13,7 @@ interface GameControlsProps {
   onRestart: () => void
 }
 
-export function GameControls({
+export default function GameControls({
   score,
   highScore,
   isPlaying,
