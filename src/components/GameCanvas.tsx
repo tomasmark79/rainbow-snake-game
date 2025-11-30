@@ -9,14 +9,14 @@ interface GameCanvasProps {
   isPlaying: boolean
 }
 
-export function GameCanvas({
+export const GameCanvas = ({
   canvasRef,
   width,
   height,
   isGameOver,
   isPaused,
   isPlaying
-}: GameCanvasProps) {
+}: GameCanvasProps) => {
   return (
     <Card className="p-4 bg-gradient-to-br from-primary/20 to-secondary/20 border-2">
       <div className="relative">

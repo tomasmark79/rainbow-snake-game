@@ -13,7 +13,7 @@ interface GameControlsProps {
   onRestart: () => void
 }
 
-export function GameControls({
+export const GameControls = ({
   score,
   highScore,
   isPlaying,
@@ -22,7 +22,7 @@ export function GameControls({
   onStart,
   onPause,
   onRestart
-}: GameControlsProps) {
+}: GameControlsProps) => {
   return (
     <div className="flex flex-col gap-4 w-full max-w-xs">
       <Card className="p-4">
